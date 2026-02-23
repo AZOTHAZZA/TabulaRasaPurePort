@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PURE PORT - Universal Synthesis</title>
+    <style>
+        /* 黄金比 φ ≈ 1.618 */
+        :root {
+            --phi: 1.618;
+            --navy: #001f3f; /* シーパワーの深海 */
+            --gold: #D4AF37; /* 実体経済の黄金 */
+            --white: #ffffff; /* 純粋な規範 */
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: var(--navy);
+            color: var(--white);
+            font-family: 'Times New Roman', serif;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        /* 黄金比に基づいた特異点（入力欄） */
+        .port-container {
+            width: calc(100% / var(--phi));
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--gold);
+            font-size: calc(2rem / var(--phi));
+            letter-spacing: 0.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--gold);
+            color: var(--white);
+            font-size: 1.2rem;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-bottom: 2px solid var(--white);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        /* 34資産の規範（下部に静かに配置） */
+        .assets-grid {
+            position: absolute;
+            bottom: calc(100vh / (var(--phi) * var(--phi) * var(--phi)));
+            display: flex; gap: 1rem; opacity: 0.3; font-size: 0.7rem;
+            flex-wrap: wrap; justify-content: center; width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="port-container">
+        <h1 id="logo">PURE</h1>
+        <input type="text" id="omni-input" placeholder="Who What When Where Why How..." autofocus>
+    </div>
+
+    <div class="assets-grid" id="asset-display">
+        <span>PURE</span> <span>ARCHE</span> <span>LOGOS</span> <span>RATIO</span> <span>SOL</span> <span>SILENCE</span>...
+    </div>
+
+    <script>
+        const input = document.getElementById('omni-input');
+        const logo = document.getElementById('logo');
+
+        input.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const val = this.value;
+                // メビウス変換的言い換え（数理的変換のシミュレート）
+                console.log("錬成開始:", val);
+                
+                // 黄金比の振動
+                logo.style.textShadow = "0 0 30px #ffffff";
+                setTimeout(() => {
+                    logo.style.textShadow = "0 0 10px rgba(212, 175, 55, 0.5)";
+                    this.value = ''; // ゼロ（沈黙）への回帰
+                }, 500);
+
+                // ここで多点（他ポートやリアル）への送信処理を記述
+                alert("執行完了: " + val + "\n数理的変換により多点へ射出されました。");
+            }
+        });
+    </script>
+</body>
+</html>
